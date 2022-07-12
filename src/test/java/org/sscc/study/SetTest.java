@@ -1,14 +1,16 @@
 package org.sscc.study;
 
-import org.junit.jupiter.api.*;
-import org.junit.jupiter.params.*;
-import org.junit.jupiter.params.provider.*;
+import java.util.HashSet;
+import java.util.Set;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.params.provider.CsvSource;
 
-import java.util.*;
-
-import static org.assertj.core.api.Assertions.*;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class SetTest {
     private Set<Integer> numbers;
@@ -23,7 +25,8 @@ class SetTest {
     }
 
     @Test
-    void testSetSize() {
+    @DisplayName("should_ReturnSetSize")
+    void should_ReturnSetSize() {
         //when
         int size = numbers.size();
 
@@ -32,12 +35,14 @@ class SetTest {
     }
 
     @ParameterizedTest
+    @DisplayName("should_TestIfSetHasValue_ForValuesInSet")
     @ValueSource(ints = {1, 2, 3})
-    void testIfSetContainsValue(int value) {
+    void should_TestIfSetHasValue_ForValuesInSet(int value) {
         assertTrue(numbers.contains(value));
     }
 
     @ParameterizedTest
+    @DisplayName("should_TestIfSetHasValue_ForSomeIntegers")
     @CsvSource({
             "1, true",
             "2, true",
@@ -45,7 +50,7 @@ class SetTest {
             "4, false",
             "5, false"
     })
-    void testIfSetContainsValue(int value, boolean hasValue) {
+    void should_TestIfSetHasValue_ForSomeIntegers(int value, boolean hasValue) {
         assertThat(numbers.contains(value)).isEqualTo(hasValue);
     }
 }

@@ -1,12 +1,15 @@
 package org.sscc.study;
 
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.catchThrowable;
 
 class StringClassTest {
     @Test
-    void testSplit() {
+    @DisplayName("should_SplitString_ForSimpleString")
+    void should_SplitString_ForSimpleString() {
         //given
         String string1 = "1,2";
         String string2 = "1";
@@ -25,7 +28,8 @@ class StringClassTest {
     }
 
     @Test
-    void testSubString() {
+    @DisplayName("should_ReturnSubstring_ForSimpleString")
+    void should_ReturnSubstring_ForSimpleString() {
         //given
         String string = "(1,2)";
 
@@ -37,8 +41,8 @@ class StringClassTest {
     }
 
     @Test
-    @DisplayName("Test case : 특정 위치의 문자 가져오기")
-    void testCharAt() {
+    @DisplayName("should_ReturnCharAtIndex")
+    void should_ReturnCharAtIndex() {
         //given
         String string = "abc";
         int index = 2;
@@ -51,8 +55,8 @@ class StringClassTest {
     }
 
     @Test
-    @DisplayName("Test case : StringIndexOutOfBoundsException")
-    void testCharAtIndexOutOfBounds() {
+    @DisplayName("should_ThrowException_When_IndexOutOfBounds")
+    void should_ThrowException_When_IndexOutOfBounds() {
         //given
         String string = "abc";
         int index = 10;
