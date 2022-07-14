@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -20,16 +21,20 @@ public class SetCollectionTest {
         numbers.add(2);
         numbers.add(3);
     }
+
     //Test case 구현
+    @DisplayName("Set 크기 확인 테스트")
     @Test
     public void checkSetSize() {
         assertThat(numbers).hasSize(3);
     }
+    @DisplayName("1,2,3 값 존재 확인 테스트")
     @ParameterizedTest
     @ValueSource(ints={1,2,3})
     public void returnTrueNumber(int input){
         assertThat(numbers.contains(input));
     }
+    @DisplayName("값에 따라 T/F 결과가 달라지는 테스트")
     @ParameterizedTest
     @CsvSource(value={"1:true","2:true","3:true","4:false","5:false"},delimiter=':')
     public void anotherTest(int input,boolean expected){

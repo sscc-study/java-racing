@@ -6,6 +6,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class StringTest {
     @Test
+    @DisplayName("조건에 맞춘 split 수행하는 테스트")
     public void split(){
         String[] first = "1,2".split(",");
         String[] second = "1,".split(",");
@@ -14,6 +15,7 @@ public class StringTest {
         assertThat(second).containsExactly("1");
     }
     @Test
+    @DisplayName("() 제거하는 테스트")
     public void subString(){
         String basic="(1,2)";
         String result=basic.substring(1,basic.length()-1);
