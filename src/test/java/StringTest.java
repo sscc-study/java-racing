@@ -25,7 +25,7 @@ public class StringTest {
     }
 
     @Test
-    @DisplayName("abc 문자열이 주어졌을 때 특정 위치의 문자 가져오는 테스트")
+    @DisplayName("abc 문자열 주어진 경우 특정 위치의 문자 가져오는 테스트")
     public void charAtTest() {
         String str = "abc";
 

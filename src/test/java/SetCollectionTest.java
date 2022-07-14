@@ -29,11 +29,11 @@ public class SetCollectionTest {
         assertThat(numbers).hasSize(3);
     }
 
-    @DisplayName("1,2,3 값 존재 확인 테스트")
+    @DisplayName("1,2,3 값 존재 확인 및 중복 코드 제거 테스트")
     @ParameterizedTest
     @ValueSource(ints = {1, 2, 3})
     public void returnTrueNumber(int input) {
-        assertThat(numbers.contains(input));
+        assertThat(numbers.contains(input)).isTrue();
     }
 
     @DisplayName("값에 따라 T/F 결과가 달라지는 테스트")
