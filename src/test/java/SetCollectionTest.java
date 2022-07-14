@@ -14,8 +14,8 @@ public class SetCollectionTest {
     private Set<Integer> numbers;
 
     @BeforeEach
-    void setUp(){
-        numbers=new HashSet<>();
+    void setUp() {
+        numbers = new HashSet<>();
         numbers.add(1);
         numbers.add(1);
         numbers.add(2);
@@ -28,16 +28,18 @@ public class SetCollectionTest {
     public void checkSetSize() {
         assertThat(numbers).hasSize(3);
     }
+
     @DisplayName("1,2,3 값 존재 확인 테스트")
     @ParameterizedTest
-    @ValueSource(ints={1,2,3})
-    public void returnTrueNumber(int input){
+    @ValueSource(ints = {1, 2, 3})
+    public void returnTrueNumber(int input) {
         assertThat(numbers.contains(input));
     }
+
     @DisplayName("값에 따라 T/F 결과가 달라지는 테스트")
     @ParameterizedTest
-    @CsvSource(value={"1:true","2:true","3:true","4:false","5:false"},delimiter=':')
-    public void anotherTest(int input,boolean expected){
+    @CsvSource(value = {"1:true", "2:true", "3:true", "4:false", "5:false"}, delimiter = ':')
+    public void anotherTest(int input, boolean expected) {
         assertThat(numbers.contains(input)).isEqualTo(expected);
     }
 }
