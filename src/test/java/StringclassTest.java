@@ -1,16 +1,19 @@
 
-import org.junit.jupiter.api.*;
-import static org.assertj.core.api.Assertions.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Assertions;
 
-class StringclassTest {
+import static org.assertj.core.api.Assertions.assertThat;
+
+class StringClassTest {
     String[] splitNum1_2 = "1,2".split(",");
     String[] splitNum1 = "1".split(",");
-    String subString1_2 = "(1,2)".substring(1,4);
+    String subString1_2 = "(1,2)".substring(1, 4);
     String alphabets = "abc";
 
     @Test
-    void splitTest(){
-        assertThat(splitNum1_2).containsExactly("1","2")
+    void splitTest() {
+        assertThat(splitNum1_2).containsExactly("1", "2")
                 .contains("1")
                 .contains("2");
 
@@ -19,13 +22,13 @@ class StringclassTest {
     }
 
     @Test
-    void subStringTest(){
+    void subStringTest() {
         assertThat(subString1_2).isEqualTo("1,2");
     }
 
     @Test
     @DisplayName("charAt() 메소드 테스트")
-    void charAtTest(){
+    void charAtTest() {
         assertThat(alphabets.charAt((0))).isEqualTo('a');
         assertThat(alphabets.charAt((1))).isEqualTo('b');
         assertThat(alphabets.charAt((2))).isEqualTo('c');
@@ -35,8 +38,8 @@ class StringclassTest {
 
     @Test
     @DisplayName("charAt() StringIndexOutOfBoundsException 테스트")
-    void charAtExceptionTest(){
-        Assertions.assertThrows(StringIndexOutOfBoundsException.class, ()->{
+    void charAtExceptionTest() {
+        Assertions.assertThrows(StringIndexOutOfBoundsException.class, () -> {
             System.out.println(alphabets.charAt(4));
         }, "예외가 발생하지 않았습니다.");
     }
