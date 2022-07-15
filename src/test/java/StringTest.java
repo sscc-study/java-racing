@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
 
-class Stringtest {
+class StringTest {
     @DisplayName("요구사항 1 - split 테스트")
     @Test
     public void splitTest() {
