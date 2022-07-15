@@ -9,9 +9,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 
-class setcollectionTest {
+class Setcollectiontest {
     private Set<Integer> numbers;
 
     @BeforeEach
@@ -44,3 +43,4 @@ class setcollectionTest {
         assertThat(numbers.contains(input)).isEqualTo(expected);
     }
 }
+

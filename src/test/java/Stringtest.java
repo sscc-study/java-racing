@@ -1,11 +1,9 @@
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 
-class stringTest {
+class Stringtest {
     @DisplayName("요구사항 1 - split 테스트")
     @Test
     public void splitTest() {
