@@ -92,10 +92,9 @@ public class Calculator {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String test = "";
         Calculator calculator = new Calculator();
-        int result = calculator.run(sc.nextLine());
-        System.out.println(result);
+        calculator.run(sc.nextLine());
+        calculator.printResult();
         sc.close();
     }
 }
