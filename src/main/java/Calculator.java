@@ -26,11 +26,8 @@ public class Calculator {
     }
 
     // 문장 입력 후 공백단위로 분리
-    private void getStrings(){
-        Scanner sc = new Scanner(System.in);
-        String input = sc.nextLine();
+    private void getStrings(String input){
         inputs = input.split(" ");
-        sc.close();
     }
 
     // 사칙연산 기호 아닌지 검사 -> 맞을 시 계산된 값 리턴
@@ -46,10 +43,22 @@ public class Calculator {
         throw new IllegalArgumentException("올바르지 않은 연산자입니다.");
     }
 
-    // 공백문자인지 검사
-    private void checkNull(){
+    // 공백만 입력되었는 지 확인
+    private void checkBlank(String input){
+        if(input.equals(""))
+            throw new IllegalArgumentException("문자가 입력되지 않았습니다.");
+    }
+
+    // 입력값이 없는 지 확인
+    private void checkEmpty(){
         if(inputs.length==0)
             throw new IllegalArgumentException("문자가 입력되지 않았습니다.");
+    }
+
+    // 입력된 값이 null인 지 검사
+    private void checkNull(String input){
+        if(input==null)
+            throw new IllegalArgumentException("null이 입력되었습니다.");
     }
 
     // 문자 검사
@@ -61,20 +70,32 @@ public class Calculator {
         }
     }
 
+    // 결과값 출력
     private void printResult(){
         System.out.println(num1);
     }
 
+    // 결과값 리턴
+    public int getResult(){
+        return num1;
+    }
+
     // 최종 실행
-    public void run(){
-        getStrings();
-        checkNull();
+    public int run(String input){
+        checkNull(input);
+        checkBlank(input);
+        getStrings(input);
+        checkEmpty();
         calculate();
-        printResult();
+        return getResult();
     }
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String test = "";
         Calculator calculator = new Calculator();
-        calculator.run();
+        int result = calculator.run(sc.nextLine());
+        System.out.println(result);
+        sc.close();
     }
 }
