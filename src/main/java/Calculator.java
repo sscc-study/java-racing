@@ -1,8 +1,7 @@
 public class Calculator {
-    private String input;
+    private final String input;
     private String[] inputs;
     private int num1;
-    private int num2;
 
     public Calculator(String input) {
         this.input = input;
@@ -26,7 +25,7 @@ public class Calculator {
     private void calculate() {
         num1 = Integer.parseInt(inputs[0]);
         for (int i = 1; i < inputs.length; i += 2) {
-            num2 = Integer.parseInt(inputs[i + 1]);
+            int num2 = Integer.parseInt(inputs[i + 1]);
             num1 = Operator.checkOperation(num1, num2, inputs[i]);
         }
     }
