@@ -8,9 +8,6 @@ public class Calculator {
     private double output;
     private String trimmedOutput;
 
-    public Calculator() {
-        this("");
-    }
     public Calculator(String input) {
         this.input = input;
     }

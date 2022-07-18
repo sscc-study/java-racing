@@ -11,12 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class CalculatorTest {
-    private Calculator calc;
-
-    @BeforeEach
-    void setUp() {
-        calc = new Calculator();
-    }
+    Calculator calc;
 
     @ParameterizedTest
     @NullAndEmptySource
@@ -31,7 +26,7 @@ class CalculatorTest {
             "77 / 8 / 5 * 5 ! 9",
             "5 +* 10"
     })
-    @DisplayName("입력 값에 대해 IllegalArgumentException throw")
+    @DisplayName("비정상 입력 값에 대해 IllegalArgumentException throw")
     void should_ThrowIllegalArgumentException(String input) {
         calc = new Calculator(input);
         assertThatThrownBy(() -> calc.execute())
