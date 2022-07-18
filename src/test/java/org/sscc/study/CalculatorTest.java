@@ -7,8 +7,6 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import java.net.CacheRequest;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
@@ -29,7 +27,7 @@ class CalculatorTest {
             "5 +* 10"
     })
     @DisplayName("입력 값에 대해 IllegalArgumentException throw")
-    void should_ThrowIllegalArgumentException(String input) throws Exception {
+    void should_ThrowIllegalArgumentException(String input) {
         assertThatThrownBy(() -> new Calculator(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
