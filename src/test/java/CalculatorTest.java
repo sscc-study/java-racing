@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class CalculatorTest {
 
-    private Calculator calculator = new Calculator();
+    private Calculator calculator;
 
     @Test
     void 더하기_테스트() {
@@ -14,7 +14,8 @@ class CalculatorTest {
         int expected = 6;
 
         // when
-        int result = calculator.run(test);
+        calculator = new Calculator(test);
+        int result = calculator.run();
 
         // then
         assertThat(result).isEqualTo(expected);
@@ -27,7 +28,8 @@ class CalculatorTest {
         int expected = 2;
 
         // when
-        int result = calculator.run(test);
+        calculator = new Calculator(test);
+        int result = calculator.run();
 
         // then
         assertThat(result).isEqualTo(expected);
@@ -40,7 +42,8 @@ class CalculatorTest {
         int expected = 42;
 
         // when
-        int result = calculator.run(test);
+        calculator = new Calculator(test);
+        int result = calculator.run();
 
         // then
         assertThat(result).isEqualTo(expected);
@@ -53,7 +56,8 @@ class CalculatorTest {
         int expected = 2;
 
         // when
-        int result = calculator.run(test);
+        calculator = new Calculator(test);
+        int result = calculator.run();
 
         // then
         assertThat(result).isEqualTo(expected);
@@ -66,7 +70,8 @@ class CalculatorTest {
 
         // then
         assertThatThrownBy(() -> {
-            calculator.run(test);
+            calculator = new Calculator(test);
+            calculator.run();
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -77,7 +82,8 @@ class CalculatorTest {
 
         // then
         assertThatThrownBy(() -> {
-            calculator.run(test);
+            calculator = new Calculator(test);
+            calculator.run();
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -88,7 +94,8 @@ class CalculatorTest {
 
         // then
         assertThatThrownBy(() -> {
-            calculator.run(test);
+            calculator = new Calculator(test);
+            calculator.run();
         }).isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -99,7 +106,8 @@ class CalculatorTest {
         int expected = 10;
 
         // when
-        int result = calculator.run(test);
+        calculator = new Calculator(test);
+        int result = calculator.run();
 
         // then
         assertThat(result).isEqualTo(expected);
@@ -112,7 +120,8 @@ class CalculatorTest {
 
         // then
         assertThatThrownBy(() -> {
-            calculator.run(test);
+            calculator = new Calculator(test);
+            calculator.run();
         }).isInstanceOf(IllegalArgumentException.class);
     }
 }
