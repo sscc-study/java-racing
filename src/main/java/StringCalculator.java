@@ -23,25 +23,22 @@ public class StringCalculator {
         result = Integer.parseInt(SplitContents[0]);
         for (int i = 0; i < SplitContents.length - 2; i += 2) {
             String operator = SplitContents[i + 1];
+            result = operation(operator, Integer.parseInt(SplitContents[i + 2]));
+        }
+    }
 
-            switch (operator) {
-                case "+":
-                    result += Integer.parseInt(SplitContents[i + 2]);
-                    break;
-                case "-":
-                    result -= Integer.parseInt(SplitContents[i + 2]);
-                    break;
-                case "/":
-                    result /= Integer.parseInt(SplitContents[i + 2]);
-                    break;
-                case "*":
-                    result *= Integer.parseInt(SplitContents[i + 2]);
-                    break;
-                case "":
-                    throw new IllegalArgumentException("입력이 공백입니다.");
-                default:
-                    throw new IllegalArgumentException("올바르지 않은 입력입니다.");
-            }
+    public int operation(String operator, int nextNum) {
+        switch (operator) {
+            case "+":
+                return result += nextNum;
+            case "-":
+                return result -= nextNum;
+            case "/":
+                return result /= nextNum;
+            case "*":
+                return result *= nextNum;
+            default:
+                throw new IllegalArgumentException("올바르지 않은 입력입니다.");
         }
     }
 
