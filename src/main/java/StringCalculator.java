@@ -3,16 +3,14 @@ import java.util.Scanner;
 public class StringCalculator {
     private final String InitialInput;
     private String[] SplitContents;
-    public int result;
-
-    public StringCalculator() {
-        Scanner scanner = new Scanner(System.in);
-        InitialInput = scanner.nextLine();
-        scanner.close();
-    }
+    private int result;
 
     public StringCalculator(String InitialInput) {
         this.InitialInput = InitialInput;
+    }
+
+    public int getResult() {
+        return result;
     }
 
     public void splitString() {
@@ -40,18 +38,5 @@ public class StringCalculator {
             default:
                 throw new IllegalArgumentException("올바르지 않은 입력입니다.");
         }
-    }
-
-    public void printResult() {
-        System.out.println(result);
-    }
-
-    public static void main(String[] args) {
-        StringCalculator stringCalculator = new StringCalculator();
-
-        stringCalculator.splitString();
-        stringCalculator.selectOperation();
-        stringCalculator.printResult();
-
     }
 }

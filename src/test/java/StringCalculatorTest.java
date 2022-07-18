@@ -28,8 +28,6 @@ class StringCalculatorTest {
         StringCalculator stringCalculator = new StringCalculator(testInput);
         stringCalculator.splitString();
         stringCalculator.selectOperation();
-        assertThat(stringCalculator.result).isEqualTo(Integer.parseInt(testAnswer));
+        assertThat(stringCalculator.getResult()).isEqualTo(Integer.parseInt(testAnswer));
     }
-
-
 }
