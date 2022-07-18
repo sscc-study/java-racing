@@ -3,17 +3,12 @@ package org.sscc.study;
 import java.text.DecimalFormat;
 
 public class Calculator {
-    private final String input;
     private String[] stringArray;
     private double output;
     private String trimmedOutput;
 
     public Calculator(String input) throws Exception {
-        this.input = input;
-        checkIfNullOrEmpty();
-        setStringArray();
-        checkInvalidOperand();
-        checkInvalidOperator();
+        validationCheck(input);
     }
 
     public String execute() throws Exception {
@@ -22,14 +17,23 @@ public class Calculator {
         return trimmedOutput;
     }
 
-    private void checkIfNullOrEmpty() throws Exception {
-        if (input == null)
-            throw new IllegalArgumentException();
-        if (input.isEmpty() || input.isBlank())
-            throw new IllegalArgumentException();
+    private void validationCheck(String input) throws Exception {
+        checkIfNullOrEmpty(input);
+        checkInvalidOperand();
+        checkInvalidOperator();
     }
 
-    private void setStringArray() {
+    private void checkIfNullOrEmpty(String input) throws Exception {
+        if (input == null) {
+            throw new IllegalArgumentException();
+        }
+        if (input.isEmpty() || input.isBlank()) {
+            throw new IllegalArgumentException();
+        }
+        setStringArray(input);
+    }
+
+    private void setStringArray(String input) {
         stringArray = input.split(" ");
     }
 
@@ -43,15 +47,18 @@ public class Calculator {
 
     private void checkInvalidOperator() throws Exception {
         int i = 1;
-        if (hasInvalidOperator(i))
+        if (hasInvalidOperator(i)) {
             throw new IllegalArgumentException();
+        }
     }
 
     private boolean hasInvalidOperator(int i) {
-        if (i >= stringArray.length)
+        if (i >= stringArray.length) {
             return false;
-        if (stringArray[i].matches("[+*/-]"))
+        }
+        if (stringArray[i].matches("[+*/-]")) {
             return hasInvalidOperator(i + 2);
+        }
         return true;
     }
 
@@ -72,8 +79,9 @@ public class Calculator {
         }
     }
 
-    private double calculate(double operand1, String operator, double operand2) throws Exception {
-        return Operator.calculate(operand1, operator, operand2);
+    private double calculate(double operand1, String symbol, double operand2) throws Exception {
+        Operator op = Operator.findOperator(symbol);
+        return op.calculate(operand1, operand2);
     }
 
     private void trimValue() {
