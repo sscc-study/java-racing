@@ -5,24 +5,30 @@ import java.util.Scanner;
 public class ArithmeticOperation {
     static Scanner scanner;
     static String input;
+    static String output;
     static Calculator calculator;
 
     public static void main(String[] args) {
-        setEnv();
-        start();
+        getInput();
+        calculate();
+        printOutput();
     }
 
-    static void setEnv() {
+    private static void getInput() {
         scanner = new Scanner(System.in);
         input = scanner.nextLine();
-        calculator = new Calculator();
+        calculator = new Calculator(input);
     }
 
-    static void start() {
+    private static void calculate() {
         try {
-            calculator.bootUp(input);
+            output = calculator.execute();
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private static void printOutput() {
+        System.out.println(output);
     }
 }

@@ -3,27 +3,35 @@ package org.sscc.study;
 import java.text.DecimalFormat;
 
 public class Calculator {
-    String[] stringArray;
-    double output;
-    String trimmedOutput;
+    private final String input;
+    private String[] stringArray;
+    private double output;
+    private String trimmedOutput;
 
-    void bootUp(String input) throws Exception {
-        checkIfNullOrEmpty(input);
-        setStringArray(input);
-        calculate(stringArray);
-        print();
+    public Calculator() {
+        this("");
+    }
+    public Calculator(String input) {
+        this.input = input;
+    }
+    public String execute() throws Exception {
+        checkIfNullOrEmpty();
+        setStringArray();
+        calculate();
+        trimValue();
+        return trimmedOutput;
     }
 
-    void checkIfNullOrEmpty(String input) throws Exception {
+    private void checkIfNullOrEmpty() throws Exception {
         if (input == null || input == "")
             throw new IllegalArgumentException();
     }
 
-    void setStringArray(String input) {
+    private void setStringArray() {
         stringArray = input.split(" ");
     }
 
-    void calculate(String[] stringArray) throws Exception {
+    private void calculate() throws Exception {
         checkInvalidOperand();
         checkInvalidOperator();
 
@@ -34,13 +42,13 @@ public class Calculator {
         }
     }
 
-    void checkInvalidOperator() throws Exception {
+    private void checkInvalidOperator() throws Exception {
         int i = 1;
         if (hasInvalidOperator(i))
             throw new IllegalArgumentException();
     }
 
-    boolean hasInvalidOperator(int i) {
+    private boolean hasInvalidOperator(int i) {
         if (i >= stringArray.length)
             return false;
         if (stringArray[i].matches("[+*/-]"))
@@ -48,7 +56,7 @@ public class Calculator {
         return true;
     }
 
-    void checkInvalidOperand() throws Exception {
+    private void checkInvalidOperand() throws Exception {
         for (int i = 0; i < stringArray.length; i += 2) {
             convertException(i);
         }
@@ -57,7 +65,7 @@ public class Calculator {
         }
     }
 
-    void convertException(int i) throws Exception {
+    private void convertException(int i) throws Exception {
         try {
             Double.parseDouble(stringArray[i]);
         } catch (NumberFormatException e) {
@@ -65,33 +73,11 @@ public class Calculator {
         }
     }
 
-    double calculate(double operand1, String operator, double operand2) throws Exception {
-        switch (operator) {
-            case "+":
-                return operand1 + operand2;
-            case "-":
-                return operand1 - operand2;
-            case "*":
-                return operand1 * operand2;
-            case "/":
-                return (int) divide(operand1, operand2);
-            default:
-                throw new IllegalArgumentException();
-        }
+    private double calculate(double operand1, String operator, double operand2) throws Exception {
+        return Operator.calculate(operand1, operator, operand2);
     }
 
-    double divide(double a, double b) throws Exception {
-        if (b == 0.0)
-            throw new ArithmeticException();
-        return a / b;
-    }
-
-    void print() {
-        trimValue();
-        System.out.println(trimmedOutput);
-    }
-
-    void trimValue() {
+    private void trimValue() {
         DecimalFormat df = new DecimalFormat("#.######");
         trimmedOutput = df.format(output);
     }
