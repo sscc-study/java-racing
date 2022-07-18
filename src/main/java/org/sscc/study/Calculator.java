@@ -8,22 +8,24 @@ public class Calculator {
     private double output;
     private String trimmedOutput;
 
-    public Calculator() {
-        this("");
-    }
-    public Calculator(String input) {
+    public Calculator(String input) throws Exception {
         this.input = input;
-    }
-    public String execute() throws Exception {
         checkIfNullOrEmpty();
         setStringArray();
+        checkInvalidOperand();
+        checkInvalidOperator();
+    }
+
+    public String execute() throws Exception {
         calculate();
         trimValue();
         return trimmedOutput;
     }
 
     private void checkIfNullOrEmpty() throws Exception {
-        if (input == null || input == "")
+        if (input == null)
+            throw new IllegalArgumentException();
+        if (input.isEmpty() || input.isBlank())
             throw new IllegalArgumentException();
     }
 
@@ -32,9 +34,6 @@ public class Calculator {
     }
 
     private void calculate() throws Exception {
-        checkInvalidOperand();
-        checkInvalidOperator();
-
         output = Double.parseDouble(stringArray[0]);
         for (int i = 0; i < stringArray.length - 1; i += 2) {
             output = calculate(output, stringArray[i + 1],

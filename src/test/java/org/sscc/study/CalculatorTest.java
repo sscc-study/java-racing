@@ -7,16 +7,13 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+import java.net.CacheRequest;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class CalculatorTest {
-    private Calculator calc;
-
-    @BeforeEach
-    void setUp() {
-        calc = new Calculator();
-    }
+    Calculator calc;
 
     @ParameterizedTest
     @NullAndEmptySource
@@ -32,9 +29,8 @@ class CalculatorTest {
             "5 +* 10"
     })
     @DisplayName("입력 값에 대해 IllegalArgumentException throw")
-    void should_ThrowIllegalArgumentException(String input) {
-        calc = new Calculator(input);
-        assertThatThrownBy(() -> calc.execute())
+    void should_ThrowIllegalArgumentException(String input) throws Exception {
+        assertThatThrownBy(() -> new Calculator(input))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -52,5 +48,18 @@ class CalculatorTest {
     void should_ReturnValidOutput_ForValidInput(String input, String output) throws Exception {
         calc = new Calculator(input);
         assertThat(calc.execute()).isEqualTo(output);
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {
+            "3 - 5 * 8.8 / 0",
+            "-33 * 1.825 / 0 * 99.67 - 303.25",
+            "-1.58 * 77 - 3.8 / 0"
+    })
+    @DisplayName("0으로 나누었을 때 ArithmeticException throw")
+    void should_ThrowArithmeticException_When_DivideByZero(String input) throws Exception {
+        calc = new Calculator(input);
+        assertThatThrownBy(() -> calc.execute())
+                .isInstanceOf(ArithmeticException.class);
     }
 }

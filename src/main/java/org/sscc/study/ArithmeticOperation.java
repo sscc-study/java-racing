@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class ArithmeticOperation {
     static Scanner scanner;
     static String input;
-    static String output;
+    static String output = "";
     static Calculator calculator;
 
     public static void main(String[] args) {
@@ -17,11 +17,11 @@ public class ArithmeticOperation {
     private static void getInput() {
         scanner = new Scanner(System.in);
         input = scanner.nextLine();
-        calculator = new Calculator(input);
     }
 
     private static void calculate() {
         try {
+            calculator = new Calculator(input);
             output = calculator.execute();
         } catch (Exception e) {
             e.printStackTrace();
