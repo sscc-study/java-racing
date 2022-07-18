@@ -4,7 +4,7 @@ public class Calculator {
     private int num1;
     private int num2;
 
-    public Calculator(String input){
+    public Calculator(String input) {
         this.input = input;
     }
 
