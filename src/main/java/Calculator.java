@@ -1,11 +1,11 @@
 import java.util.NoSuchElementException;
 import java.util.Scanner;
-import java.util.function.BiFunction;
 
 public class Calculator {
     public int execute() {
-        Scanner scanner = new Scanner(System.in);
         String value;
+        Scanner scanner = new Scanner(System.in);
+
         try {
             value = scanner.nextLine();
         } catch (NoSuchElementException e) {
