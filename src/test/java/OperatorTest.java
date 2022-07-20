@@ -10,7 +10,7 @@ class OperatorTest {
     @Test
     void addTest() {
         Operator operator = Operator.findOperator("+");
-        int result = operator.operate(1,2);
+        int result = operator.operate(1, 2);
         assertThat(result).isEqualTo(3);
     }
 
@@ -18,7 +18,7 @@ class OperatorTest {
     @Test
     void subTest() {
         Operator operator = Operator.findOperator("-");
-        int result = operator.operate(2,1);
+        int result = operator.operate(2, 1);
         assertThat(result).isEqualTo(1);
     }
 
@@ -26,7 +26,7 @@ class OperatorTest {
     @Test
     void mulTest() {
         Operator operator = Operator.findOperator("*");
-        int result = operator.operate(1,2);
+        int result = operator.operate(1, 2);
         assertThat(result).isEqualTo(2);
     }
 
@@ -34,9 +34,7 @@ class OperatorTest {
     @Test
     void divTest() {
         Operator operator = Operator.findOperator("/");
-        int result = operator.operate(4,2);
+        int result = operator.operate(4, 2);
         assertThat(result).isEqualTo(2);
     }
-
-
 }
