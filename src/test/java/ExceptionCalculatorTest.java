@@ -46,11 +46,11 @@ public class ExceptionCalculatorTest {
 
     @DisplayName("잘못된 피연산자가 입력된 경우")
     @Test
-    void wrongNumber() {
+    void wrongOperand() {
         inputHandling("ㄱ * 2");
         assertThatThrownBy(() -> calculator.execute())
                 .isInstanceOf(NumberFormatException.class)
-                .hasMessage("피연산자가 잘못되었습니다.");
+                .hasMessage("숫자 자리에 다른 문자를 입력했거나 띄워쓰기가 잘못되었습니다.");
     }
 
 }
