@@ -1,7 +1,8 @@
 import java.util.Arrays;
+import java.util.Random;
 
 public class Cars {
-    private String[] car;
+    private final String[] car;
 
     public Cars(int number){
         car = new String[number];
@@ -9,18 +10,15 @@ public class Cars {
     }
 
     public void move(int index){
-        car[index]+="-";
+        if(randomValue())
+            car[index]+="-";
     }
 
-    public int length(){
-        return car.length;
+    public String[] getResult(){
+        return car;
     }
 
-    public String getResult(){
-        String result = "";
-        for(String car : car){
-            result = result + car + "\n";
-        }
-        return result;
+    private boolean randomValue(){
+        return (Math.random()*10) >= 4;
     }
 }
