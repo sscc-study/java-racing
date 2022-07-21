@@ -4,9 +4,9 @@ import java.util.List;
 import java.util.Vector;
 
 public class RacingGame {
-    private Round round;
-    private List<Roster> roundResults = new Vector<>();
-    private Integer roundCount;
+    private final Round round;
+    private final List<Roster> roundResults = new Vector<>();
+    private final Integer roundCount;
 
     public RacingGame(Integer carCount, Integer roundCount) {
         this(new Round(new Roster(carCount)), roundCount);

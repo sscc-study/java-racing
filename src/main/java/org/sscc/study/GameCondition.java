@@ -11,7 +11,7 @@ public class GameCondition {
         return randomValue() >= THRESHOLD;
     }
 
-    public int randomValue() {
+    private int randomValue() {
         return random.nextInt(RANDOM_BOUND);
     }
 }

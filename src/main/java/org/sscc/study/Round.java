@@ -1,11 +1,7 @@
 package org.sscc.study;
 
-import java.util.Vector;
-import java.util.List;
-import java.util.stream.Collectors;
-
 public class Round {
-    private Roster someExhaustClass;
+    private final Roster someExhaustClass;
 
     public Round(Roster roster) {
         this.someExhaustClass = roster;

@@ -1,15 +1,13 @@
 package org.sscc.study;
 
-import java.util.Random;
-import java.util.stream.IntStream;
-
 public class Car {
-    private GameCondition gameCondition;
+    private final GameCondition gameCondition;
     private int position;
 
     public Car(Car car) {
         this(new GameCondition(), car.currentPosition());
     }
+
     public Car() {
         this(new GameCondition());
     }

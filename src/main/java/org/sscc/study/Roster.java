@@ -1,13 +1,11 @@
 package org.sscc.study;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
-import java.util.stream.Collectors;
 
 public class Roster {
     private List<Car> roster = new Vector<>();
-    private Integer carCount;
+    private final Integer carCount;
 
     public Roster(Roster that) {
         this.carCount = that.rosterSize();
@@ -23,7 +21,7 @@ public class Roster {
     }
 
     private void put() {
-        for(int i = 0; i < carCount; i++) {
+        for (int i = 0; i < carCount; i++) {
             roster.add(new Car());
         }
     }
@@ -31,6 +29,7 @@ public class Roster {
     public int rosterSize() {
         return carCount;
     }
+
     public List<Car> roster() {
         return roster;
     }

@@ -1,6 +1,5 @@
 package org.sscc.study;
 
-import java.io.OutputStream;
 import java.util.Scanner;
 
 public class Main {
