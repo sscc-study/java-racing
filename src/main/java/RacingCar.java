@@ -21,6 +21,4 @@ public class RacingCar {
     private boolean canMove(int tmpNumber){
         return (tmpNumber >= 4);
     }
-
-
 }
