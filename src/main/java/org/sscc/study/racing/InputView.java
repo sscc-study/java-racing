@@ -1,3 +1,5 @@
+package org.sscc.study.racing;
+
 import java.util.Scanner;
 
 public class InputView {

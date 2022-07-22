@@ -1,3 +1,5 @@
+package org.sscc.study.calculator;
+
 public class Calculator {
     private final String input;
     private String[] inputs;

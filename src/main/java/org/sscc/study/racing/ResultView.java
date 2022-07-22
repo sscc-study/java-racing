@@ -1,3 +1,5 @@
+package org.sscc.study.racing;
+
 public class ResultView {
     public static void printCars(String[] result) {
         for (String car : result) {

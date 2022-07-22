@@ -1,3 +1,5 @@
+package org.sscc.study.racing;
+
 public class CarRacing {
     private final Cars cars;
     private final int count;

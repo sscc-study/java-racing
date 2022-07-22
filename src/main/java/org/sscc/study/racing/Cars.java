@@ -1,3 +1,5 @@
+package org.sscc.study.racing;
+
 import java.util.Arrays;
 import java.util.Random;
 
