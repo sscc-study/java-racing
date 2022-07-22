@@ -1,10 +1,7 @@
 public class StringCalculatorMain {
     public static void main(String[] args) {
-        StringCalculator stringCalculator = new StringCalculator(StringInput.InitialUserInput);
+        StringCalculator stringCalculator = new StringCalculator(StringInput.initialUserInput);
 
-        stringCalculator.splitString();
         stringCalculator.operation();
-        stringCalculator.Output();
-
     }
 }

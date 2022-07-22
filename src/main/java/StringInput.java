@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
 public class StringInput {
-    static String InitialUserInput;
+    static String initialUserInput;
 
-    public void Input() {
+    public void input() {
         Scanner scanner = new Scanner(System.in);
-        InitialUserInput = scanner.nextLine();
+        initialUserInput = scanner.nextLine();
         scanner.close();
     }
 }

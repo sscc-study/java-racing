@@ -14,7 +14,6 @@ class StringCalculatorTest {
     void exceptionTest(String testInput) {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             StringCalculator stringCalculator = new StringCalculator(testInput);
-            stringCalculator.splitString();
             stringCalculator.operation();
 
         });
@@ -26,7 +25,6 @@ class StringCalculatorTest {
             "10 - 6 / 2,2", "7 / 2 + 8,11"})
     void calculationTest(String testInput, String testAnswer) {
         StringCalculator stringCalculator = new StringCalculator(testInput);
-        stringCalculator.splitString();
         stringCalculator.operation();
         assertThat(stringCalculator.getResult()).isEqualTo(Integer.parseInt(testAnswer));
     }

@@ -6,14 +6,11 @@ public class StringCalculator {
 
     public StringCalculator(String initialInput) {
         this.initialInput = initialInput;
+        splitContents=initialInput.split(" ");
     }
 
     public int getResult() {
         return result;
-    }
-
-    public void splitString() {
-        splitContents = initialInput.split(" ");
     }
 
     public int operation() throws IllegalArgumentException {
@@ -24,9 +21,5 @@ public class StringCalculator {
             result = operator.operate(result, Integer.parseInt(splitContents[i + 2]));
         }
         return result;
-    }
-
-    public void Output(){
-        System.out.println(result);
     }
 }
