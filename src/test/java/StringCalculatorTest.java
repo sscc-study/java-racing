@@ -15,7 +15,7 @@ class StringCalculatorTest {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             StringCalculator stringCalculator = new StringCalculator(testInput);
             stringCalculator.splitString();
-            stringCalculator.selectOperation();
+            stringCalculator.operation();
 
         });
     }
@@ -27,7 +27,7 @@ class StringCalculatorTest {
     void calculationTest(String testInput, String testAnswer) {
         StringCalculator stringCalculator = new StringCalculator(testInput);
         stringCalculator.splitString();
-        stringCalculator.selectOperation();
+        stringCalculator.operation();
         assertThat(stringCalculator.getResult()).isEqualTo(Integer.parseInt(testAnswer));
     }
 }
