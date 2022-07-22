@@ -1,4 +1,5 @@
 public class Calculator {
+
     public String[] split(String formula){
         return formula.split(" ");
     }
