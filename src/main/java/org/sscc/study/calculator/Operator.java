@@ -1,3 +1,5 @@
+package org.sscc.study.calculator;
+
 import java.util.Arrays;
 import java.util.function.BiFunction;
 

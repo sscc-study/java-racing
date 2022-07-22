@@ -1,3 +1,5 @@
+package org.sscc.study.calculator;
+
 public class Calculator {
     private final String input;
     private String[] inputs;
@@ -10,14 +12,14 @@ public class Calculator {
     // 문장 입력 후 공백단위로 분리
     private void getStrings() {
         inputs = input.split(" ");
-        if (inputs.length == 0){
+        if (inputs.length == 0) {
             throw new IllegalArgumentException("문자가 입력되지 않았습니다.");
         }
     }
 
     // 공백만 입력되었는 지 확인
     private void checkBlank() {
-        if (input == null||input.equals(""))
+        if (input == null || input.equals(""))
             throw new IllegalArgumentException("문자가 입력되지 않았습니다.");
     }
 
