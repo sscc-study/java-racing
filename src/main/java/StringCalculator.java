@@ -1,11 +1,11 @@
 
 public class StringCalculator {
-    private final String InitialInput;
-    private String[] SplitContents;
+    private final String initialInput;
+    private String[] splitContents;
     private int result;
 
-    public StringCalculator(String InitialInput) {
-        this.InitialInput = InitialInput;
+    public StringCalculator(String initialInput) {
+        this.initialInput = initialInput;
     }
 
     public int getResult() {
@@ -13,16 +13,20 @@ public class StringCalculator {
     }
 
     public void splitString() {
-        SplitContents = InitialInput.split(" ");
+        splitContents = initialInput.split(" ");
     }
 
     public int operation() throws IllegalArgumentException {
-        result = Integer.parseInt(SplitContents[0]);
-        for (int i = 0; i < SplitContents.length - 2; i += 2) {
-            String symbol = SplitContents[i + 1];
+        result = Integer.parseInt(splitContents[0]);
+        for (int i = 0; i < splitContents.length - 2; i += 2) {
+            String symbol = splitContents[i + 1];
             Operator operator = Operator.findOperater(symbol);
-            result = operator.operate(result, Integer.parseInt(SplitContents[i + 2]));
+            result = operator.operate(result, Integer.parseInt(splitContents[i + 2]));
         }
         return result;
+    }
+
+    public void Output(){
+        System.out.println(result);
     }
 }
