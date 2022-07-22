@@ -20,7 +20,7 @@ public enum Operator {
         return this.operation.apply(x, y);
     }
 
-    public static Operator findOperater(String symbol) {
+    public static Operator findOperator(String symbol) {
         for (Operator operator : Operator.values()) {
             if (symbol.equals(operator.symbol)) {
                 return operator;

@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 public class StringInput {
-    static String initialUserInput;
+    String initialUserInput;
 
-    public void input() {
+    StringInput() {
         Scanner scanner = new Scanner(System.in);
         initialUserInput = scanner.nextLine();
         scanner.close();

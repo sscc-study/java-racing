@@ -1,7 +1,9 @@
 public class StringCalculatorMain {
     public static void main(String[] args) {
-        StringCalculator stringCalculator = new StringCalculator(StringInput.initialUserInput);
+        StringInput stringInput = new StringInput();
+        StringCalculator stringCalculator = new StringCalculator(stringInput.initialUserInput);
 
-        stringCalculator.operation();
+        int result = stringCalculator.operation();
+        System.out.println(result);
     }
 }
