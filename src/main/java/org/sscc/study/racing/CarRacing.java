@@ -1,30 +1,24 @@
 package org.sscc.study.racing;
 
+import java.util.List;
+
 public class CarRacing {
     private final Cars cars;
     private final int count;
-    private final int number;
 
     public CarRacing(int number, int count) {
         this.count = count;
-        this.number = number;
         cars = new Cars(number);
     }
 
-    private void start() {
-        for (int i = 0; i < number; i++) {
-            cars.move(i);
-        }
-    }
-
-    public void run() {
+    public void raceStart() {
         for (int i = 0; i < count; i++) {
-            start();
+            cars.run();
             ResultView.printCars(cars.getResult());
         }
     }
 
-    public String[] getResult() {
+    public List<Car> getResult() {
         return cars.getResult();
     }
 }
