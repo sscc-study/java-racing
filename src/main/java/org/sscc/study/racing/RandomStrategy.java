@@ -1,5 +1,5 @@
 package org.sscc.study.racing;
 
-interface RandomUtil {
+interface RandomStrategy {
     boolean getValue();
 }
