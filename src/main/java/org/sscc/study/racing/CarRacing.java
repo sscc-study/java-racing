@@ -1,7 +1,5 @@
 package org.sscc.study.racing;
 
-import java.util.List;
-
 public class CarRacing {
     private final Cars cars;
     private final int count;

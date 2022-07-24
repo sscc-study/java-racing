@@ -19,19 +19,19 @@ public class Cars {
         }
     }
 
-    private void moveCar(Car car, MoveStrategy moveStrategy){
-        if(moveStrategy.isMoveAble()){
+    private void moveCar(Car car, MoveStrategy moveStrategy) {
+        if (moveStrategy.isMoveAble()) {
             car.move();
         }
     }
 
     @Override
     public String toString() {
-        StringBuilder result= new StringBuilder();
-        for(Car car : cars){
+        StringBuilder result = new StringBuilder();
+        for (Car car : cars) {
             result.append(car.getName()).append("\n");
         }
-        result.deleteCharAt(result.length()-1);
+        result.deleteCharAt(result.length() - 1);
         return result.toString();
     }
 }

@@ -14,7 +14,7 @@ public class InputView {
         return number;
     }
 
-    public void getValue(){
+    public void getValue() {
         Scanner sc = new Scanner(System.in);
         System.out.println("자동차 대수는 몇 대 인가요?");
         number = sc.nextInt();

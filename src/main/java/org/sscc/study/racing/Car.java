@@ -8,7 +8,7 @@ public class Car {
     }
 
     public void move() {
-        name+="-";
+        name += "-";
     }
 
     public String getName() {
