@@ -15,6 +15,7 @@ public enum Operator {
     private final String operator;
     private final BiFunction<Integer, Integer, Integer> expression;
 
+
     Operator(String operator, BiFunction<Integer, Integer, Integer> expression){
         this.operator = operator;
         this.expression = expression;

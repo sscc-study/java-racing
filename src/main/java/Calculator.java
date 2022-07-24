@@ -4,7 +4,7 @@ public class Calculator {
         return formula.split(" ");
     }
 
-    public int toInt(String num){
+    int toInt(String num){
         if (num.trim().isEmpty())
             throw new IllegalArgumentException();
         return Integer.parseInt(num);
