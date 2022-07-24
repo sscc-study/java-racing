@@ -1,26 +1,37 @@
 package org.sscc.study.racing;
 
-import java.util.Arrays;
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Cars {
-    private final String[] car;
+    private final List<Car> cars;
 
-    public Cars(int number){
-        car = new String[number];
-        Arrays.fill(car, "");
+    public Cars(int number) {
+        cars = new ArrayList<>();
+        for (int i = 0; i < number; i++) {
+            cars.add(new Car(""));
+        }
     }
 
-    public void move(int index){
-        if(randomValue())
-            car[index]+="-";
+    public void run(MoveStrategy moveStrategy) {
+        for (Car car : cars) {
+            moveCar(car, moveStrategy);
+        }
     }
 
-    public String[] getResult(){
-        return car;
+    private void moveCar(Car car, MoveStrategy moveStrategy) {
+        if (moveStrategy.isMoveAble()) {
+            car.move();
+        }
     }
 
-    private boolean randomValue(){
-        return (Math.random()*10) >= 4;
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        for (Car car : cars) {
+            result.append(car.getName()).append("\n");
+        }
+        result.deleteCharAt(result.length() - 1);
+        return result.toString();
     }
 }
