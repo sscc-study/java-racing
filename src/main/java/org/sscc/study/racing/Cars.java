@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Cars {
     private final List<Car> cars;
-    public static RandomStrategy randomStrategy = new Random();
 
     public Cars(int number) {
         cars = new ArrayList<>();
@@ -14,13 +13,25 @@ public class Cars {
         }
     }
 
-    public void run() {
+    public void run(MoveStrategy moveStrategy) {
         for (Car car : cars) {
-            car.move(randomStrategy);
+            moveCar(car, moveStrategy);
         }
     }
 
-    public List<Car> getResult() {
-        return cars;
+    private void moveCar(Car car, MoveStrategy moveStrategy){
+        if(moveStrategy.isMoveAble()){
+            car.move();
+        }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder result= new StringBuilder();
+        for(Car car : cars){
+            result.append(car.getName()).append("\n");
+        }
+        result.deleteCharAt(result.length()-1);
+        return result.toString();
     }
 }

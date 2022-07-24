@@ -1,8 +1,8 @@
 package org.sscc.study.racing;
 
-public class Random implements RandomStrategy {
+public class RandomMove implements MoveStrategy {
     @Override
-    public boolean getValue() {
+    public boolean isMoveAble() {
         return (Math.random() * 10) >= 4;
     }
 }

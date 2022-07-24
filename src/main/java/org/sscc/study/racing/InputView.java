@@ -3,18 +3,18 @@ package org.sscc.study.racing;
 import java.util.Scanner;
 
 public class InputView {
-    private static int count;
-    private static int number;
+    private int count;
+    private int number;
 
-    public static int getCount() {
+    public int getCount() {
         return count;
     }
 
-    public static int getNumber() {
+    public int getNumber() {
         return number;
     }
 
-    public static void getValue(){
+    public void getValue(){
         Scanner sc = new Scanner(System.in);
         System.out.println("자동차 대수는 몇 대 인가요?");
         number = sc.nextInt();

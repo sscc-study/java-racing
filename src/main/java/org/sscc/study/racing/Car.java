@@ -1,19 +1,17 @@
 package org.sscc.study.racing;
 
 public class Car {
-    private String car;
+    private String name;
 
-    public Car(String car) {
-        this.car = car;
+    public Car(String name) {
+        this.name = name;
     }
 
-    public void move(RandomStrategy random) {
-        if (random.getValue()) {
-            car += "-";
-        }
+    public void move() {
+        name+="-";
     }
 
-    public String getCar() {
-        return car;
+    public String getName() {
+        return name;
     }
 }

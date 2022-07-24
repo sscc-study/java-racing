@@ -11,14 +11,14 @@ public class CarRacing {
         cars = new Cars(number);
     }
 
-    public void raceStart() {
+    public void raceStart(MoveStrategy moveStrategy) {
         for (int i = 0; i < count; i++) {
-            cars.run();
-            ResultView.printCars(cars.getResult());
+            cars.run(moveStrategy);
+            ResultView.printCars(cars.toString());
         }
     }
 
-    public List<Car> getResult() {
-        return cars.getResult();
+    public String getResult() {
+        return cars.toString();
     }
 }
